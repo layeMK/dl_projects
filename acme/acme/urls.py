@@ -18,7 +18,7 @@ Including another URLconf
 #from django.urls import handler404
 #from django.contrib import admin
 #from django.conf.urls import url
-
+from django.conf import settings
 from django.conf.urls import url, include, handler404, handler500
 from django.urls import path
 from django.contrib import admin
@@ -40,3 +40,9 @@ urlpatterns = [
     #url(r'^about/$', views.about),
     #url(r'^$', views.home),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns

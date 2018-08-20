@@ -1,0 +1,7 @@
+à ajouter dans un projet django :
+
+django_extensions
+
+	on peut utilser shell_plus qui importe directement les models du projet, mieux que shell
+
+django-debug-toolbar
