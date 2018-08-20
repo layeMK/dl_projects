@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+	<h1>My Blog ( {{ posts_list|length }} ) posts</h1>
+
+
+
+	{% for plist in posts_list %}
+
+		<article>
+			<h2><a href="{% url 'show' plist.id %}">{{ plist.id }} => {{ plist.title }}</a></h2>
+			<!-- ou encore href="{% url 'show' plist.id %}" -->
+			<p>{{ plist.body | truncatewords:3 }}</p>
+
+			<p><a href="{% url 'show' plist.id %}">Lire la suite</a></p>
+		</article> 
+
+		{% if not forloop.last %}
+		<hr>
+		{% endif %}
+
+		{% empty %}
+			<p>No post_list !</p>
+
+	{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+
+<!--
+	list
+
+<ul>
+{% for plist in posts_list %}
+
+	<li>{{ plist.id }} => {{ plist.title }}</li>
+
+{% endfor %}
+</ul>
+
+-->
+
