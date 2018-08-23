@@ -61,7 +61,7 @@ ROOT_URLCONF = 'acme.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,5 +126,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#pour que le css fonctionne : qu'il puisse trouver le dossier static du projet
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
-INTERNAL_IPS = ['127.0.0.1']
+#INTERNAL_IPS = ['127.0.0.1']
+ 

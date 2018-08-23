@@ -1,15 +1,15 @@
-{% extends 'layouts/base.html' %}
+{% extends 'blog/base_b.html' %}
 
 {% block title %}Blog | {{post.title}}{% endblock %}
 
-{% block content %}
+{% block body %}
 
 <article>
-	<h1># {{ post.id }} - {{ post.title }}</h1>
-	<p>{{ post.body }}</p>
+	<h1 class="title"># {{ post.id }} - {{ post.title }}</h1>
+	<p class="content">{{ post.body }}</p>
 </article>
 
-<hr>
+<!-- <hr> -->
 
 <p><a href="{% url 'index' %}">All posts</a></p>
 
